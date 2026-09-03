@@ -34,7 +34,7 @@ English: [README.md](README.md)
 
 ## Linux и Windows
 
-Smoke на Windows x86_64 (2026-09-03): окно, скан, play/next/stop, SMTC, тема, нативный формат — ок.
+Smoke на Windows x86_64 (2026-09-03): окно, скан, play/next/stop, SMTC, тема.
 
 | | Linux (x86_64) | Windows 10/11 (x86_64) |
 |---|---|---|
