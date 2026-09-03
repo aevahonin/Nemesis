@@ -16,6 +16,20 @@ English: [README.md](README.md)
 
 Данные: Linux `~/.nemesis/`, Windows `%USERPROFILE%\.nemesis\` (библиотека, кэш обложек, окно, настройки).
 
+<p align="center">
+  <img src="media/grid.gif" alt="Nemesis" />
+</p>
+
+<p align="center">
+  <img src="media/1.png" width="49%" alt="" />
+  <img src="media/2.png" width="49%" alt="" />
+  <img src="media/3.png" width="49%" alt="" />
+  <img src="media/4.png" width="49%" alt="" />
+  <img src="media/5.png" width="49%" alt="" />
+  <img src="media/6.png" width="49%" alt="" />
+</p>
+
+
 ---
 
 ## Linux и Windows
