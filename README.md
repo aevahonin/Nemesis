@@ -6,6 +6,20 @@ A local music player. Native UI on [iced](https://iced.rs/), no embedded browser
 
 Releases: [github.com/aevahonin/Nemesis/releases](https://github.com/aevahonin/Nemesis/releases)
 
+<p align="center">
+  <img src="media/grid.gif" alt="Nemesis" />
+</p>
+
+<p align="center">
+  <img src="media/1.png" width="49%" alt="" />
+  <img src="media/2.png" width="49%" alt="" />
+  <img src="media/3.png" width="49%" alt="" />
+  <img src="media/4.png" width="49%" alt="" />
+  <img src="media/5.png" width="49%" alt="" />
+  <img src="media/6.png" width="49%" alt="" />
+</p>
+
+
 ---
 
 ## What it does
