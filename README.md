@@ -39,7 +39,7 @@ Windows x86_64 smoke (2026-09-03): window, scan, play/next/stop, SMTC, theme, na
 | | Linux (x86_64) | Windows 10/11 (x86_64) |
 |---|---|---|
 | Scan, queue, shuffle, repeat, crossfade | yes | yes |
-| Native PCM format | yes | yes |
+| Native PCM format | yes | no (soon) |
 | Volume in native format | `pactl` (sink-input) | WASAPI session volume |
 | Media keys without focus | MPRIS (`nemesis` on D-Bus) | SMTC |
 | OS theme / accent | portal, GNOME, KDE | registry |
