@@ -34,7 +34,7 @@ Data: Linux `~/.nemesis/`, Windows `%USERPROFILE%\.nemesis\` (library, cover cac
 
 ## Linux and Windows
 
-Windows x86_64 smoke (2026-09-03): window, scan, play/next/stop, SMTC, theme, native format — OK.
+Windows x86_64 smoke (2026-09-03): window, scan, play/next/stop, SMTC, theme.
 
 | | Linux (x86_64) | Windows 10/11 (x86_64) |
 |---|---|---|
