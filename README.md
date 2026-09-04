@@ -108,7 +108,7 @@ Still untested (reports welcome if you try):
 
 ## Stack
 
-Rust, [iced](https://iced.rs/) 0.14, wgpu, rodio/cpal, Symphonia, Lofty, rusqlite (SQLite linked in), rfd (folder picker). Audio: ALSA → PipeWire/Pulse on Linux, WASAPI on Windows.
+[Rust](https://rust-lang.org), [iced](https://github.com/iced-rs/iced) 0.14, [wgpu](https://github.com/gfx-rs/wgpu), [rodio](https://github.com/rustaudio/rodio), [cpal](https://github.com/RustAudio/cpal), [Symphonia](https://github.com/pdeljanov/symphonia), [Lofty](https://github.com/Serial-ATA/lofty-rs), [rusqlite](https://github.com/rusqlite/rusqlite) (SQLite linked in), [rfd](https://github.com/PolyMeilex/rfd) (folder picker). Audio: [ALSA](https://github.com/alsa-project/alsa-lib) → [PipeWire](https://github.com/PipeWire/pipewire)/[Pulse](https://github.com/pulseaudio/pulseaudio) on Linux, [WASAPI](https://learn.microsoft.com/en-us/windows/win32/coreaudio/wasapi) on Windows.
 
 ---
 
