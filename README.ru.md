@@ -108,8 +108,7 @@ AUR пока нет.
 
 ## Стек
 
-Rust, [iced](https://iced.rs/) 0.14, wgpu, rodio/cpal, Symphonia, Lofty, rusqlite (SQLite внутри бинаря), rfd (пикер папок). Звук: ALSA → PipeWire/Pulse на Linux, WASAPI на Windows.
-
+[Rust](https://rust-lang.org), [iced](https://github.com/iced-rs/iced) 0.14, [wgpu](https://github.com/gfx-rs/wgpu), [rodio](https://github.com/rustaudio/rodio), [cpal](https://github.com/RustAudio/cpal), [Symphonia](https://github.com/pdeljanov/symphonia), [Lofty](https://github.com/Serial-ATA/lofty-rs), [rusqlite](https://github.com/rusqlite/rusqlite) (SQLite внутри бинаря), [rfd](https://github.com/PolyMeilex/rfd) (пикер папок). Звук: [ALSA](https://github.com/alsa-project/alsa-lib) → [PipeWire](https://github.com/PipeWire/pipewire)/[Pulse](https://github.com/pulseaudio/pulseaudio) на Linux, [WASAPI](https://learn.microsoft.com/en-us/windows/win32/coreaudio/wasapi) на Windows.
 ---
 
 ## Обратная связь
