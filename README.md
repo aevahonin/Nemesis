@@ -102,7 +102,7 @@ Still untested (reports welcome if you try):
 - headset hardware keys, SMTC/MPRIS from the OS UI
 - large libraries, CUE, odd tags
 - native format 24-bit / 96 kHz on a given device
-- Windows ARM / Linux ARM, if you attempt it
+- Windows ARM / Linux ARM
 
 ---
 
