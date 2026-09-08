@@ -1,6 +1,6 @@
 # Nemesis
 
-A local music player. Native UI on [iced](https://iced.rs/), no embedded browser. Version **0.1.2-beta2** (Free): download, pick a folder, play. Search and playlists are not in the UI yet. No macOS.
+A local music player. Native UI on [iced](https://iced.rs/), no embedded browser. 
 
 Русский: [README.ru.md](README.ru.md)
 
