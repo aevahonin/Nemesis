@@ -1,6 +1,6 @@
 # Nemesis
 
-A local music player. Native UI on [iced](https://iced.rs/), no embedded browser. Version **0.1.1-beta** (Free): download, pick a folder, play. Search and playlists are not in the UI yet. No macOS.
+A local music player. Native UI on [iced](https://iced.rs/), no embedded browser. Version **0.1.2-beta2** (Free): download, pick a folder, play. Search and playlists are not in the UI yet. No macOS.
 
 Русский: [README.ru.md](README.ru.md)
 
@@ -39,7 +39,7 @@ Windows x86_64 smoke (2026-09-03): window, scan, play/next/stop, SMTC, theme.
 | | Linux (x86_64) | Windows 10/11 (x86_64) |
 |---|---|---|
 | Scan, queue, shuffle, repeat, crossfade | yes | yes |
-| Native PCM format | yes | no (soon) |
+| Native PCM format | yes | yes |
 | Volume in native format | `pactl` (sink-input) | WASAPI session volume |
 | Media keys without focus | MPRIS (`nemesis` on D-Bus) | SMTC |
 | OS theme / accent | portal, GNOME, KDE | registry |
