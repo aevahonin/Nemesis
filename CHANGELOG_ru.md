@@ -43,8 +43,6 @@ Title: `0.1.2-beta2`
 
 > English version: [CHANGELOG.md](CHANGELOG.md)
 
-Сюда пишем всё после смены Cargo на `0.1.2-beta`, пока тег `v0.1.2-beta` не выложен. При оформлении релиза копировать английский блок в GitHub Release.
-
 Tag: `v0.1.2-beta`  
 Title: `0.1.2-beta`
 
