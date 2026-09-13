@@ -1,4 +1,4 @@
-# 0.1.2-rc (released)
+# 0.1.2 (released)
 
 > English version: [CHANGELOG.md](CHANGELOG.md)
 
