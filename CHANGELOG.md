@@ -1,4 +1,4 @@
-# 0.1.2-rc (released)
+# 0.1.2 (released)
 
 > Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
 
