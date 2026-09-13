@@ -1,3 +1,38 @@
+# 0.1.2-rc (released)
+
+> Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
+
+Release candidate on top of `0.1.2-beta2`: Windows resize and wheel, stable animation loop, smarter covers, artist poster background, centered empty states.
+
+Tag: `v0.1.2`  
+Title: `0.1.2`
+
+
+### Added
+- Artist poster background: a new Settings toggle uses the band photo from the artist folder as the page background on artist pages (a hint in Settings explains where to put the photo).
+- Windows: the app now uses the immediate presentation mode by default — scrolling and animations lost the small stutter of the vsync queue; the mode can still be overridden with the `ICED_PRESENT_MODE` environment variable.
+
+### Fixed
+- Animations no longer freeze when the mouse leaves the window: card caption marquees, the tab pill and every other animated element keep running without pointer movement (a hit-testing gate was eating window redraw events; the frame arbiter counts every animation source, and content pages always keep their frame loop).
+- Media keys no longer act "every other press": the system media overlay is told the playback status immediately after each action (it decides which button to send next based on the status we report), and repeated quick presses are no longer collapsed into one action.
+- Windows: resizing by any edge or corner is smooth — the resize keeps the mouse captured (fast pulls no longer break off), window geometry is applied atomically so there are no distorted intermediate frames, and the edge follows the true cursor position instead of oscillating. Grids keep their morph animation while resizing.
+- Windows: mouse-wheel scrolling reaches the scroll physics — discrete wheel clicks get their own gentle timing instead of the fast trackpad curve, and each click travels further (176/140 px for grids/lists).
+- 24-bit audio is no longer truncated to 16 bit during decoding in the gapless mode — the bit-perfect indicator shows the real file depth.
+- Cover picking prefers the real front artwork: inserts, booklets, vinyl backs and "Back" files no longer beat the front cover; large vinyl scans up to 64 MB are accepted (was 20 MB).
+- Artist posters are normalized to a true JPEG when cached — photos stored as WebP bytes under a .jpg name no longer break the renderer (the background of some artists did not show).
+- Scrolling huge grids no longer touches the disk for every visible cover (lookups are cached), and a full rescan now cleans up orphaned files in the covers cache.
+- Removing the last track from Favorites now crossfades to the empty page right away — no lingering gray cover ghost, and the hint text appears in time.
+- Leaving a tab with an open album or artist page fades the whole panel cleanly — no one-frame flash of the artist poster or the page veil.
+- The tab pill spring returns smoothly on the leftmost tabs and always settles exactly on target (no snap-jump when the other animations sleep); the toast slides out from under the player island instead of fading in place.
+
+### Changed
+- Empty states are centered: the empty queue (logo + hints), empty album/artist/folder/playlist grids, and the "nothing found" search page.
+- The "new version available" status line appears with a smooth height/alpha animation, and clicking it opens the releases page again.
+- Release archives for all platforms are built with unified names (`nemesis-<version>-<platform>-<arch>`) from the Linux Docker pipeline.
+
+
+---
+
 # 0.1.2-beta2 (released)
 
 > Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
