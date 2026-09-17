@@ -1,3 +1,42 @@
+# 0.1.3 (release)
+
+> Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
+
+The `0.1.3` release, on top of the `0.1.2` release: a visualization screen, ReplayGain volume normalization, sorting for the Tracks list, translucent islands, playlist import, Opus and ALAC decoding, a real crossfade — and a big stability campaign, with more than a hundred fixes from six independent bug-hunt passes.
+
+Tag: `v0.1.3`  
+Title: `0.1.3`
+
+
+### Added
+- Visualization screen: a spectrum around the cover of the playing track right on the player island, and an expand button that takes it fullscreen — bars rise from the bottom edge of the screen, with peak-hold caps above them that fall back to the base while paused. The fullscreen mode shows a large cover (a click sends it to the background) and hides the cursor after 3 seconds of inactivity; a Settings toggle turns the cover display on or off.
+- ReplayGain volume normalization: from tags, with a target loudness (−24…−12 LUFS, −18 by default) and a switchable clipping guard; an indicator next to the player shows the normalization status (it gets crossed out when normalization is off).
+- Sorting for the Tracks list: a card with Artist/Album/Genre/Year buttons — several keys at once, applied in the order they were pressed; after sorting is applied, the rows fade in as a cascade. Favorites always keeps its adding order.
+- Translucent islands: a "Translucent islands" setting — the amount of transparency is set with −/+ buttons (5% steps), 5% by default.
+- Playlists: import of `m3u`/`m3u8`/`pls` (old m3u files in CP1251 are decoded too).
+- Opus and ALAC decoding.
+- A "−" button instead of the "×" on queue and playlist tracks and on the playlist cover in the grid: the minus means "remove from this list", while the cross stays for real deletion and closing.
+- Reworked Settings: uniform cards with descriptions, two columns on wide screens, scrolling with the same physics as the lists; the system language is picked automatically (English as the fallback); new toggles default to off.
+
+### Fixed
+- Crossfade: the transition now really lasts as long as the setting says (before, the old track was cut off after about 0.7 s, so every transition came out short); switching tracks in the middle of an unfinished transition no longer produces clicks or volume jumps.
+- Bit-perfect: seamless joints between tracks without clicks (the next track is stitched into the same stream); changing the crossfade length mid-transition no longer "blows up" the volume of the outgoing track.
+- Gapless: a slowly reading disk no longer skips the next track at the joint; the seamless hand-off no longer breaks shuffle (every second joint used to start unprepared); quickly pressing next/prev no longer loses the prepared next track.
+- Opus: the click at the start position after a seek and at the beginning of a CUE segment is gone; Opus files with more than two channels give an honest error instead of scrambled channels.
+- Row highlighting no longer "jumps" to other tabs: when the track changes, the queue is cleared, a rescan runs, sorting is applied or a heart is removed, the selection stays where you put it.
+- Favorites: removing a track no longer shows a wrong track in the sidebar; an empty Favorites page appears right away, without a lingering gray panel.
+- Covers: a failed thumbnail write no longer caches a broken picture forever; two copies of the app writing the cache at the same time no longer corrupt each other's files.
+- Library and data: on Windows, scan folders find files regardless of letter case; damaged database records (infinite durations, giant track numbers) no longer crash the player; deleting a scan folder or a playlist is atomic; a session with a broken position is restored safely.
+- Overall stability: six independent bug-hunt passes fixed more than a hundred defects in audio, data and the interface — from rare hangs in the cover pipeline to a lost position when switching tracks quickly.
+
+### Changed
+- The default volume is now 100% (was 80%).
+- Noticeably faster on large libraries: sorting and search run tens of times faster (instant on tens of thousands of tracks), metadata scanning uses all CPU cores in parallel, scrolling huge lists is smoother, and the idle load is lower.
+- Updated icons: the normalization indicator (volume bars / crossed-out), the visualization "expand" button, and the "remove from list" minus.
+
+
+---
+
 # 0.1.2 (released)
 
 > Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
