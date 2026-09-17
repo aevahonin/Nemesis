@@ -1,6 +1,6 @@
 # Nemesis
 
-A local music player. Native UI on [iced](https://iced.rs/), no embedded browser. 
+A local music player. Native UI on [iced](https://iced.rs/), no embedded browser.
 
 Русский: [README.ru.md](README.ru.md)
 
@@ -24,9 +24,11 @@ Releases: [github.com/aevahonin/Nemesis/releases](https://github.com/aevahonin/N
 
 ## What it does
 
-On-disk library (mp3, flac, wav, ogg/Vorbis, m4a, aac), tabs for queue / albums / artists / tracks / folders, queue, shuffle, repeat, crossfade, seek, spectrum, covers. Frameless window, dark and light themes, Ru/En.
+On-disk library (mp3, flac, wav, ogg/Vorbis, opus, m4a/aac, alac), tabs for queue / albums / artists / tracks / folders / playlists, shuffle, repeat, crossfade, seek, favorites, CUE sheets, covers. Full-screen visualization: spectrum with peak-hold caps, album cover, expand button, cursor auto-hide. Frameless window, dark and light themes, Ru/En.
 
-**Native format:** the app outputs the file’s sample rate and bit depth and does not resample itself. PipeWire or shared WASAPI may still resample downstream. Exclusive mode, DSD, and PEQ are not this release.
+**Normalization:** ReplayGain tags with a target loudness (−24…−12 LUFS, default −18) and a clipping-protection toggle. **Native format:** the app outputs the file’s sample rate and bit depth and does not resample itself. PipeWire or shared WASAPI may still resample downstream. Exclusive mode, DSD, and PEQ are not in this release.
+
+**Playlists:** create, add tracks, import `m3u8` / `m3u` / `pls` (old m3u files in CP1251 are decoded too). **Search:** Enter plays the results starting from the first one.
 
 Data: Linux `~/.nemesis/`, Windows `%USERPROFILE%\.nemesis\` (library, cover cache, window, settings).
 
@@ -34,13 +36,16 @@ Data: Linux `~/.nemesis/`, Windows `%USERPROFILE%\.nemesis\` (library, cover cac
 
 ## Linux and Windows
 
-Windows x86_64 smoke (2026-09-03): window, scan, play/next/stop, SMTC, theme.
+Windows x86_64 smoke: window, scan, play/next/stop, SMTC, theme.
 
 | | Linux (x86_64) | Windows 10/11 (x86_64) |
 |---|---|---|
 | Scan, queue, shuffle, repeat, crossfade | yes | yes |
 | Native PCM format | yes | yes |
 | Volume in native format | `pactl` (sink-input) | WASAPI session volume |
+| ReplayGain normalization, clipping guard | yes | yes |
+| Visualization (fullscreen spectrum + cover) | yes | yes |
+| Playlists, import m3u/m3u8/pls | yes | yes |
 | Media keys without focus | MPRIS (`nemesis` on D-Bus) | SMTC |
 | OS theme / accent | portal, GNOME, KDE | registry |
 | Frameless, transparent window | yes | yes |
@@ -50,7 +55,7 @@ Windows x86_64 smoke (2026-09-03): window, scan, play/next/stop, SMTC, theme.
 
 ## Install
 
-Use the **x86_64** artifact on a typical PC. Filenames are on the release (tag matches Cargo: `v0.1.1-beta`).
+Use the **x86_64** artifact on a typical PC. Filenames are on the release (tag matches Cargo: `v0.1.3`).
 
 ### Debian / Ubuntu (12+ / 22.04+)
 
@@ -108,7 +113,8 @@ Still untested (reports welcome if you try):
 
 ## Stack
 
-[Rust](https://rust-lang.org), [iced](https://github.com/iced-rs/iced) 0.14, [wgpu](https://github.com/gfx-rs/wgpu), [rodio](https://github.com/rustaudio/rodio), [cpal](https://github.com/RustAudio/cpal), [Symphonia](https://github.com/pdeljanov/symphonia), [Lofty](https://github.com/Serial-ATA/lofty-rs), [rusqlite](https://github.com/rusqlite/rusqlite) (SQLite linked in), [rfd](https://github.com/PolyMeilex/rfd) (folder picker). Audio: [ALSA](https://github.com/alsa-project/alsa-lib) → [PipeWire](https://github.com/PipeWire/pipewire)/[Pulse](https://github.com/pulseaudio/pulseaudio) on Linux, [WASAPI](https://learn.microsoft.com/en-us/windows/win32/coreaudio/wasapi) on Windows.
+[Rust](https://rust-lang.org), [iced](https://github.com/iced-rs/iced) 0.14, [wgpu](https://github.com/gfx-rs/wgpu), [rodio](https://github.com/rustaudio/rodio), [cpal](https://github.com/RustAudio/cpal), [Symphonia](https://github.com/pdeljanov/symphonia) (flac / alac / mp4 / mp3 / ogg / wav), [libopus](https://github.com/xiph/opus) via audiopus, [Lofty](https://github.com/Serial-ATA/lofty-rs), [rusqlite](https://github.com/rusqlite/rusqlite) (SQLite linked in), [rfd](https://github.com/PolyMeilex/rfd) (file/folder dialogs), [souvlaki](https://github.com/sinono3/souvlaki) (media keys). Audio: [ALSA](https://github.com/alsa-project/alsa-lib) → [PipeWire](https://github.com/PipeWire/pipewire)/[Pulse](https://github.com/pulseaudio/pulseaudio) on Linux, [WASAPI](https://learn.microsoft.com/en-us/windows/win32/coreaudio/wasapi) on Windows.
+
 ---
 
 ## Feedback
