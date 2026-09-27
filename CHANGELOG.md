@@ -1,3 +1,39 @@
+# 0.1.4 (release)
+
+> Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
+
+The `0.1.4` release, on top of the `0.1.3` release: song lyrics with the live line above the player, a real Windows installer, a "Now Playing" page with the track's waveform, track change notifications on Linux, honest resampling for mismatched sample rates — plus another stability pass and a cheaper, smoother frame.
+
+Tag: `v0.1.4`  
+Title: `0.1.4`
+
+
+### Added
+- Song lyrics: text from local .lrc files and audio tags; the current line shows above the player in a small pill, and the "Now Playing" page shows the full lyrics following the playback — with section markers ("Chorus", "Verse"). A text can also be searched for manually, with a choice between variants; everything works with CUE rips too, where every segment gets its own times. A master Settings toggle turns lyrics off entirely, and the network download can be switched off separately.
+- A Windows installer: the app on Windows now installs through a real setup.exe — "for the current user", without administrator rights. The installer itself comes in English and Russian, the app gains an icon in Explorer and on the taskbar plus proper version information, and an upgrade or uninstall gently closes a running player (the app also exits cleanly when Windows shuts down). The portable zip is still there — both options are available, plus builds for Windows on ARM.
+- A "Now Playing" page: opens by clicking the track title in the player island. The cover, the track's waveform across the full window width (left and right channels drawn apart, bar heights follow the loudness), click or drag the wave to seek, transport buttons, an "Up next" line, and the artist/album lines open their pages. The page follows the playing track; Esc closes it and the pages opened from it.
+- Track change notifications (Linux): an optional system notification with the title, artist and album (a Settings toggle). On Windows they will arrive in a future update.
+
+### Fixed
+- Large album covers and artist posters no longer crash the app while rendering: full-size pictures are scaled down to a reasonable size (1600 px) before they are drawn.
+- Spectrum: the first low-frequency bars no longer twitch in lockstep with each other (each bar now measures its own frequencies); the peak caps no longer disappear on quiet bars and fall off smoothly while paused.
+- The Settings page starts right below the top island (it used to sink far down), and on Windows its scrolling reaches the very bottom.
+- The lyrics panel on the "Now Playing" page keeps its scroll anchored: the start of the text no longer scrolls above the middle and the end still reaches it, and after a manual scroll the text holds its place for 3 seconds instead of 5.
+- Mismatched sample rates: a track whose sample rate differs from the output (a 48 kHz file on a 44.1 kHz device and so on) no longer plays as full-volume static with bit-perfect off — it is honestly resampled to the output.
+- Rare clicks on tracks whose sample rate differs from the output (a FLAC at 44.1 kHz on a 48 kHz device, for example) when played through the regular output path.
+- An unavailable network storage no longer wipes the library on rescan: folders that cannot be read are skipped instead of being treated as empty.
+- Covers: the covers of an album that has disappeared are removed from the cache for real, and temporary files no longer pile up as garbage after a crash.
+- Playback: "Previous" on pause no longer leaves the player silent with a Play button that does nothing.
+- A damaged file with a degenerate container can no longer freeze the decoder — and the whole player with it — for good.
+- Windows: switching the output device now applies on the fly, without restarting the app; dragging the window no longer freezes marquees and animations; scrolling feels the same as on Linux.
+- Lots of small fixes from another bug-hunt pass: row selection no longer jumps between tabs and search, the queue and sorting behave, and failed library and playlist operations show clear messages.
+
+### Changed
+- The update check is now enabled by default (it can still be turned off in Settings).
+- Smoother and faster: every frame costs less (the mouse and scrolling respond faster), and metadata scanning of large libraries now uses all CPU cores in parallel.
+
+
+---
 # 0.1.3 (release)
 
 > Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
