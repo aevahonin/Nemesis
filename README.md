@@ -55,7 +55,7 @@ Windows x86_64 smoke: window, scan, play/next/stop, SMTC, theme.
 
 ## Install
 
-Use the **x86_64** artifact on a typical PC. Filenames are on the release (tag matches Cargo: `v0.1.3`).
+Use the **x86_64** artifact on a typical PC.
 
 ### Debian / Ubuntu (12+ / 22.04+)
 
