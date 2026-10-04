@@ -1,3 +1,50 @@
+# 0.1.5 (release)
+
+> Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
+
+The `0.1.5` release, on top of the `0.1.4` release: a sound processing page with an equalizer, the app arrives at Microsoft Store, the Flatpak bundle is back, crossfade now works in bit-perfect mode, and library rescans plus startup covers got much faster — on top of another long pass of scrolling, covers and stability fixes.
+
+Tag: `v0.1.5`  
+Title: `0.1.5`  
+Released: 2026-10-04
+
+
+### Added
+- A "Sound processing" page: the faders button in the top island opens a graphic equalizer (10 bands) with seven presets — Flat, Bass, Vocal, Rock, Pop, Jazz, Classical — and a preamp (−12…+12 dB). Picking a preset is heard immediately, and the band markers reshape themselves to follow the curve.
+- Microsoft Store (Windows): the app now also ships as an MSIX package for the Store. In a Store installation the in-app update check is hidden — keeping the app up to date is the Store's job, so the two never update over each other.
+- Flatpak builds are back: a `.flatpak` bundle is attached to the release on GitHub and installs with `flatpak install`.
+
+### Changed
+- Crossfade works in bit-perfect mode now: the "smooth transitions" setting no longer stands idle there, and manual switching to the next/previous track also glides over with a crossfade instead of cutting the stream.
+- Library rescans are noticeably faster: files that have not changed (checked by modification time and size) are skipped instead of being re-read and re-parsed.
+- The app redraws itself less when nothing is happening — a lighter idle load, especially on pause.
+- Linux: the app now installs under a new application identifier, `io.github.aevahonin.Nemesis` (previously `com.nemesis.player`) — the applications menu entry and the icon are tied to it. For already installed versions: an icon pinned to the taskbar will reset after the update — pin it again.
+
+### Fixed
+- Track repeat: when the same track repeated (or two identical tracks played in a row), the title in the player could switch to the next track a couple of seconds before it actually began — the title now changes exactly at the junction.
+- Volume: when the system could not spare resources for the volume helper thread, changing the volume could freeze playback for seconds — the volume now applies quickly and as well as possible in that case.
+- Pausing right at the junction between two tracks no longer breaks the playback position and no longer clips the beginning of the next track.
+- Settings: running two copies of the app at the same time can no longer corrupt the window-size and theme settings files, and temporary truncated files left behind in the data folder after a crash are cleaned up on startup.
+- Scrolling: no more twitching and rhythmic "bumps" at the end of a scroll — the motion now glides gently into place and stops, with the whole tail within half a second.
+- Covers no longer "swim" or "rebuild themselves" near the end of a scroll: cards are drawn with exactly-sized images, without re-scaling on every step.
+- Covers no longer take many times longer to load at startup: the first screen fills in through the fast path again (warmed up in several threads), and a rescan no longer makes every visible cover reload.
+- Rescanning no longer creates duplicate tracks when the same folder arrives under a different letter case (Windows), and libraries carried over from older versions no longer double their CUE tracks on a rescan.
+- When one audio file has two .cue sheets, the first one wins instead of mixing segments from both.
+- Tracks with legacy non-UTF-8 file names (old CP1251 rips) no longer end up in the library under broken names they cannot be opened from.
+- A whole drive (`C:\`, `/`) can be added as a scan folder.
+- The letter "ё" no longer sorts after "я": an artist like "Ёлка" now stands between Е and Ж.
+- Unsynced lyrics on the "Now Playing" page no longer jump back to the beginning after a manual scroll; Esc and mouse-back close the lyrics variants popup instead of the whole page.
+- The lyrics island above the player now disappears immediately when turned off in settings — before, it only went away after restarting the app — and its state is remembered between launches.
+- Old .lrc files saved in the CP1251 encoding are read again, and .lrc files saved by the app open in Windows text editors without mojibake.
+- The remembered window position now works on monitors to the left of or above the primary one (negative coordinates used to be discarded), and minimizing the window no longer corrupts its saved size.
+- Windows: dragging and resizing the window no longer freeze animations; if you prefer the even smoother system drag, a new Settings toggle, "System window dragging", returns it (in-app animations pause while the system drags).
+- Windows: files under paths longer than 260 characters (deep NAS collections) are no longer silently skipped when scanning.
+- Plus another round of small fixes: m3u playlists written on the other OS (with forward slashes) find their files, files for CUE and playlists are found regardless of Cyrillic letter case on Windows, removing a scan folder during a rescan no longer leaves ghost tracks, and clicking the heart can no longer bring the app down on machines starved for resources.
+
+
+---
+
+
 # 0.1.4 (release)
 
 > Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
