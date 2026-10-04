@@ -10,7 +10,7 @@ Released: 2026-10-04
 
 
 ### Added
-- A "Sound processing" page: the faders button in the top island opens a graphic equalizer (10 bands) with seven presets — Flat, Bass, Vocal, Rock, Pop, Jazz, Classical — and a preamp (−12…+12 dB). Picking a preset is heard immediately, and the band markers reshape themselves to follow the curve.
+- A "Sound processing" page: the faders button in the top island opens a graphic equalizer with seven presets — Flat, Bass, Vocal, Rock, Pop, Jazz, Classical — and a preamp (−12…+12 dB). Picking a preset is heard immediately, and the band markers reshape themselves to follow the curve.
 - Microsoft Store (Windows): the app now also ships as an MSIX package for the Store. In a Store installation the in-app update check is hidden — keeping the app up to date is the Store's job, so the two never update over each other.
 - Flatpak builds are back: a `.flatpak` bundle is attached to the release on GitHub and installs with `flatpak install`.
 
