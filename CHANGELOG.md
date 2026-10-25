@@ -1,4 +1,26 @@
-# 0.1.5 (release)
+# 0.1.6 (release)
+
+> Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
+
+The `0.1.6` release, on top of the `0.1.5` release: the settings page is rebuilt around tidy cards, the equalizer looks cleaner, the window corners are noticeably smaller, and the Flatpak build regains its desktop integration — on top of a Windows window-restore fix.
+
+Tag: `v0.1.6`  
+Title: `0.1.6`  
+Released: 2026-10-23
+
+
+### Changed
+- Settings are rebuilt around cards: labels no longer scroll as marquees but stay put; every card sizes itself to its content (descriptions cap at three lines). "Equalizer" became a parent card with a master toggle, and dependent visualization settings now dim and come back with a smooth fade.
+- Equalizer: the fill under the curve is now a single flat tone with a clean break exactly at the zero axis — no stair-steps, no stray lines, no on-screen artifacts.
+- Linux: window corners are rounded noticeably less — the 16 px radius gave way to 8 px, matching modern apps (Steam, Discord). Maximized and fullscreen windows have square corners.
+- Linux: the "No transcoding" (PipeWire) setting is actually applied now — it used to be written in a form PipeWire silently ignored.
+
+### Fixed
+- Windows: restoring the window from a minimized state could draw the title bar stretched across the whole screen — after restoring, the window now paints its full contents right away.
+- Linux (Flatpak): in the Flatpak build, external control of the player did not work — keyboard media keys and track information in the desktop shell: the player's D-Bus name was not covered by the sandbox permissions, and the service thread crashed. It works now.
+
+
+---# 0.1.5 (release)
 
 > Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
 
