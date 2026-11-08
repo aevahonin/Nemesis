@@ -1,3 +1,38 @@
+# 0.1.7 (release)
+
+> Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
+
+Tag: `v0.1.7`  
+Title: `0.1.7`
+
+
+### Added
+- The top island has turned into a menu: "Home / Queue / Library". Clicking "Library" smoothly unfolds a sub-row — "‹ Library / Albums / Artists / Tracks / Folders / Playlists" — and the arrow takes you back to the root.
+- A new "Home" page — the app now opens on it. Two sections of album cards, "Continue" and "Most played", eight albums each; the cards stretch and shrink with the window, so the row always fills its full width, and when the window is resized they glide to their new places, just like in the library. Above the sections sits a stats strip: how many tracks and albums the library holds, and how many of them you have played in total and over the last seven days. In the header there is a "Random album" die — one click starts playing a random album from your whole library. Until history builds up, a hint stands where the numbers will be.
+- The player keeps a listening history: a track counts as played after half of its length or four minutes — whichever comes first; repeats and manual restarts count too. This history feeds "Continue", "Most played" and the stats strip.
+- Fact blocks at the very bottom of "Home": "Fun facts" — a card about a random artist from your library (homeland, years, genres, awards), with their album covers on the right — each one opens its album; the facts rotate on their own every two minutes, and the cover row smoothly fills up as you resize the window. And "On this day in music", with the musicians born on this day and the events of the date. The blocks work after turning on the "Artist info from the internet" toggle in Settings and follow the app language.
+- The same toggle brings an "Artist" tab to the "Now Playing" page: a "Lyrics / Artist" switch appears above the lyrics, the tab shows the artist's biography from Wikipedia with the album description below it and a "Source: Wikipedia" line at the bottom. Descriptions are remembered, so next time they open without the network.
+- The "About" page gained a copyright line, "© 2026 Антон Вахонин", and a clickable link to the project's GitHub.
+
+### Changed
+- Linux: under heavy GPU load (for example, while a game is running) the player renders more smoothly — the most recent ready frame is presented now, instead of an older one waiting in the queue.
+
+### Fixed
+
+- Albums without playable tracks no longer appear in the library: only working ones remain, and the stats counters and playlists count what is actually playable.
+- After launching the app, the mini-player could remain without the playing album's cover art until the track changed — the cover is now in place right away.
+- A broken or abnormally bloated CUE file can no longer hang library scanning or exhaust memory, and gigantic tags in audio files no longer bloat the library database.
+- Two rips of the same album (say, a regular edition and a Deluxe) no longer double the tracks on the album card and in "Play all": each song stays in a single copy, and the deluxe edition's bonus tracks remain.
+- The playing album's cover now reaches the queue cards too — it used to appear only in the player itself.
+- After scrolling the library with the mouse wheel, a card's highlight no longer sticks once the card has slid away from the motionless cursor: the hover fades by itself, and the plus button and the slight cover zoom no longer stay on.
+- A replaced cover picture (folder.jpg) in a CUE rip is now picked up by the app — the album no longer keeps showing the old picture.
+- The "[offset:]" timing shift in .lrc files now applies to the whole lyrics, wherever it stands in the file.
+- Pressing Play exactly at the moment a track changes no longer starts the new track at the previous one's position.
+
+
+---
+
+
 # 0.1.6 (release)
 
 > Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
