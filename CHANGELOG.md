@@ -1,3 +1,35 @@
+# 0.1.9 (release)
+
+> Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
+
+Tag: `0.1.9`  
+Title: `0.1.9`
+Released: 2026-11-24
+
+
+### Added
+- Mini player mode: a button in the right cluster of the bottom player folds the big window into a compact bar — cover art, scrolling title and artist, previous / play / next buttons, and a progress bar that rides along the bar's top contour, curving around its rounded corners at both ends just like the player itself. Above the bar sits the same synced lyrics line as in the big player: it slides out from behind the bar's edge, cross-fades between lines and hides on pause (works with the "Lyrics island" toggle; long lines are clipped by the edge). Click the cover or the expand button inside the bar to unfold the big window back. On Windows the window folds and unfolds with a smooth animation; on Wayland the system does not let a window resize itself, so the player swaps windows instead (the mini bar appears as its own taskbar entry, with the placement decided by the system). If the player was maximized, it first returns to the normal window. Drag the mini bar from anywhere: start moving and the window follows the cursor without triggering clicks (buttons and the cover act on release); press and release in place for a normal click.
+- The progress bar in the main player now rides along the top contour of the island too, curving around its rounded corners at both ends.
+- New "Remember window positions" toggle in Settings (it appears only in a KDE session): KWin memorizes where the big window and the mini player stood and puts them back in the same spot the next time they open or fold — including after the app is restarted. Turning the toggle on adds the rules to KWin's window rules and applies them right away, no restart needed; turning it off removes them. Any other window rules you may have in KWin are left untouched. The Flatpak build is granted access to just that one rules file, so the toggle works there too.
+- Diagnostics logging: the app now records warnings (graphics, network, cloud) and panics — on Windows into a crash.log file next to the app's data, on Linux into stderr (visible in the system journal) and into crash.log on a panic. The level of detail is controlled by the RUST_LOG variable (for example RUST_LOG=debug turns on all debug messages; the older NEMESIS_DEBUG still works too). In normal mode the app stays quiet.
+- Translucent islands: a new setting makes the "islands" — the player, tabs, settings cards — translucent with the app background blurred behind them. One toggle and two sliders: how much the islands let the background through and how strongly they blur it (blur has a 5 % minimum so text stays readable). Islands that fade away on their own (toasts and hints) fade their blur together with themselves.
+
+
+### Fixed
+- Seeking: the progress bar no longer jumps back for a moment right after you seek.
+- Rapidly switching tabs in a row no longer highlights a row of the wrong list.
+- Albums credited to several artists (collaborations) now show their real cover in the queue, the player and on pages instead of a note placeholder.
+- The tail of a CUE track after seeking is no longer cut off.
+- A slow track start (network drive, waking HDD) no longer sent the queue into auto-skip.
+- With loudness normalization on, the crossfade transition no longer flashes in volume.
+- A cover embedded into tags by editing the file in place (folder unchanged) now appears without an app restart.
+- Music behind symlinks and drive-junction glue is imported once, not twice.
+- Bit-perfect: crossfade no longer pushes the progress bar about half a second ahead of what you hear.
+- Cover preloading no longer stalls after the window is minimized.
+- Clicking the heart or "+" on huge libraries is now instant.
+
+
+
 # 0.1.7 (release)
 
 > Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
