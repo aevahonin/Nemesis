@@ -1,34 +1,76 @@
+<div align="center">
+
+<img src="media/logo.png" width="120" alt="Nemesis" />
+
 # Nemesis
 
-Локальный музыкальный плеер. Нативный интерфейс на [iced](https://iced.rs/), без встроенного браузера.
-
-English: [README.md](README.md)
-
-Релизы: [github.com/aevahonin/Nemesis/releases](https://github.com/aevahonin/Nemesis/releases)
+Локальный музыкальный плеер. Нативный интерфейс на [iced](https://iced.rs/), без встроенного браузера.<br/>Красивый, быстрый, hi-res PCM, без Electron. Windows и Linux.
 
 <p align="center">
-  <img src="media/grid.gif" alt="Nemesis" />
+  <a href="https://github.com/aevahonin/Nemesis/releases/latest"><img src="https://img.shields.io/github/v/release/aevahonin/Nemesis" alt="Release" /></a>
+  <a href="https://flathub.org/apps/io.github.aevahonin.Nemesis"><img src="https://img.shields.io/flathub/v/io.github.aevahonin.Nemesis" alt="Flathub" /></a>
+  <a href="https://rust-lang.org"><img src="https://img.shields.io/badge/built%20with-Rust-orange?logo=rust" alt="Rust" /></a>
+  <a href="#linux-и-windows"><img src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows-blue" alt="Platform" /></a>
 </p>
+
+[Что умеет](#что-умеет) · [Установка](#установка) · [Список изменений](CHANGELOG_ru.md) · [Issues](https://github.com/aevahonin/Nemesis/issues)
+
+[English](README.md) · **Русский**
+
+</div>
 
 <p align="center">
-  <img src="media/1.png" width="49%" alt="" />
-  <img src="media/2.png" width="49%" alt="" />
-  <img src="media/3.png" width="49%" alt="" />
-  <img src="media/4.png" width="49%" alt="" />
-  <img src="media/5.png" width="49%" alt="" />
-  <img src="media/6.png" width="49%" alt="" />
+  <img src="media/grid.gif" alt="Nemesis: сетка альбомов" />
 </p>
 
+<details>
+<summary>Ещё скриншоты</summary>
+
+<p align="center">
+  <img src="media/1.png" width="49%" alt="Треки: колонки формата, битрейта, разрядности и частоты" />
+  <img src="media/4.png" width="49%" alt="Альбомы" />
+  <img src="media/2.png" width="49%" alt="Настройки" />
+  <img src="media/5.png" width="49%" alt="Визуализация: спектр" />
+  <img src="media/3.png" width="49%" alt="О приложении" />
+  <img src="media/6.png" width="49%" alt="Спектр на весь экран" />
+</p>
+
+</details>
 
 ---
 
 ## Что умеет
 
-Библиотека на диске (mp3, flac, wav, ogg/Vorbis, opus, m4a/aac, alac), вкладки: очередь / альбомы / исполнители / треки / папки / плейлисты, shuffle, repeat, кроссфейд, перемотка, избранное, CUE-листы, обложки. Полноэкранная визуализация: спектр с «шапочками» пиков, обложка альбома, кнопка на весь экран, автоскрытие курсора. Безрамочное окно, тёмная и светлая темы, ру/ен.
+**Библиотека и воспроизведение**
 
-**Нормализация:** теги ReplayGain с целевой громкостью (−24…−12 LUFS, по умолчанию −18) и переключателем защиты от клиппинга. **Нативный формат:** приложение выводит родные частоту и разрядность файла и само не ресемплирует. PipeWire или общий WASAPI могут ресемплировать ниже по цепочке. Эксклюзивный режим, DSD и PEQ в этом релизе отсутствуют.
+- Библиотека на диске: mp3, flac, wav, ogg/Vorbis, opus, m4a/aac, alac, CUE-листы, обложки.
+- Страница «Главная»: ряды «Продолжить» и «Часто слушаете», строка статистики и кубик «Случайный альбом».
+- Очередь, альбомы, исполнители, треки, папки, плейлисты; shuffle, repeat, кроссфейд, gapless, перемотка, избранное.
+- Поиск по названию, исполнителю и альбому: регистр не важен (в том числе в кириллице), лишние пробелы схлопываются, «ё» и «е» считаются одной буквой. Enter играет выдачу начиная с первого результата.
+- Плейлисты: создание, добавление треков, сохранение очереди как плейлиста, импорт `m3u8` / `m3u` / `pls` (старые m3u в CP1251 тоже читаются).
+- Мини-плеер: большое окно складывается в компактный бар, который тянется из любого места.
 
-**Плейлисты:** создание, добавление треков, импорт `m3u8` / `m3u` / `pls` (старые m3u в CP1251 тоже читаются). **Поиск:** Enter играет выдачу начиная с первого результата.
+**Звук**
+
+- **Нативный формат:** приложение выводит родные частоту и разрядность файла и само не ресемплирует. PipeWire или общий WASAPI могут ресемплировать ниже по цепочке. Плеер показывает реальные разрядность и частоту.
+- **Нормализация:** теги ReplayGain с целевой громкостью (−24…−12 LUFS, по умолчанию −18) и переключателем защиты от клиппинга.
+- Графический эквалайзер с семью пресетами и преампом (−12…+12 дБ).
+- Кроссфейд в обоих режимах вывода, включая нативный формат; бесшовные стыки без щелчков.
+
+**Тексты и исполнители**
+
+- Тексты из локальных `.lrc` и тегов: текущая строка над плеером, полный текст с метками куплетов на странице «Сейчас играет».
+- Страница «Сейчас играет»: обложка и волна трека — клик или перетаскивание по волне перематывают.
+- С тумблером «Инфо об исполнителе из сети»: биографии из Википедии, «Интересные факты» и «В этот день в мире музыки» на «Главной».
+
+**Интерфейс**
+
+- Полноэкранная визуализация: спектр с «шапочками» пиков, обложка альбома, кнопка на весь экран, автоскрытие курсора.
+- Прозрачные «островки» с размытым фоном, безрамочное окно, тёмная и светлая темы, ру/ен.
+- Медиа-клавиши без фокуса: MPRIS на Linux, SMTC на Windows.
+- Страницы исполнителей открываются на большом постере из папки исполнителя.
+
+Пока нет в этом релизе: эксклюзивный режим, DSD, PEQ.
 
 Данные: Linux `~/.nemesis/`, Windows `%USERPROFILE%\.nemesis\` (библиотека, кэш обложек, окно, настройки).
 
@@ -49,44 +91,56 @@ Windows x86_64 smoke: окно, скан, play/next/stop, SMTC, тема.
 | Медиа-клавиши без фокуса | MPRIS (`nemesis` на D-Bus) | SMTC |
 | Тема / акцент системы | portal, GNOME, KDE | реестр |
 | Безрамочное, прозрачное окно | да | да |
-| Установка | `.deb` / `.rpm` / `.pkg.tar.zst` / tar.gz | **portable zip**, без установщика (установщик скоро) |
+| Установка | Flathub / `.deb` / `.rpm` / `.pkg.tar.zst` / AppImage / tar.gz | **setup.exe** (текущий пользователь, без прав администратора) или **portable zip** |
 
 ---
 
 ## Установка
 
-На обычный ПК берите артефакт **x86_64**.
+Все пакеты — на [странице релизов](https://github.com/aevahonin/Nemesis/releases/latest). На обычный ПК берите сборку **x86_64**.
+
+### [Flathub](https://flathub.org/apps/io.github.aevahonin.Nemesis) (любой дистрибутив)
+
+```bash
+flatpak install flathub io.github.aevahonin.Nemesis
+```
 
 ### Debian / Ubuntu (12+ / 22.04+)
 
 ```bash
-sudo dpkg -i nemesis_*_amd64.deb
+sudo dpkg -i nemesis-*-debian-x86_64.deb
 sudo apt-get install -f   # если не хватает зависимостей
 ```
-
-Нужны PipeWire или PulseAudio и драйвер GPU (Vulkan/OpenGL).
 
 ### Fedora (39+)
 
 ```bash
-sudo dnf install nemesis-*.x86_64.rpm
+sudo dnf install nemesis-*-fedora-x86_64.rpm
 ```
 
 ### Arch / Manjaro / EndeavourOS
 
 ```bash
-sudo pacman -U nemesis-*-x86_64.pkg.tar.zst
+sudo pacman -U nemesis-*-arch-x86_64.pkg.tar.zst
 ```
 
 В AUR пакета пока нет.
 
-### Linux без пакетa дистрибутива
+### AppImage
+
+Сделайте `nemesis-*-linux-x86_64.AppImage` исполняемым и запустите.
+
+### Linux без пакета дистрибутива
 
 Распакуйте `nemesis-*-linux-x86_64.tar.gz` в корень `/` (внутри `usr/bin/nemesis` и `.desktop`-файл). Или запустите бинарник из `usr/bin/` на системе с совместимой glibc.
 
+Нужны PipeWire или PulseAudio и драйвер GPU (Vulkan/OpenGL).
+
 ### Windows
 
-Распакуйте `nemesis-*-windows-x86_64-portable.zip` и запустите `nemesis.exe`. Дополнительных DLL не нужно. В меню «Пуск» сам не добавляется.
+**Установщик:** `nemesis-*-windows-x86_64-setup.exe` ставится для текущего пользователя, без прав администратора.
+
+**Portable:** распакуйте `nemesis-*-windows-x86_64-portable.zip` и запустите `nemesis.exe`. Дополнительных DLL не нужно. В меню «Пуск» сам не добавляется.
 
 ---
 
@@ -95,7 +149,7 @@ sudo pacman -U nemesis-*-x86_64.pkg.tar.zst
 | Сборка | Статус |
 |---|---|
 | Linux x86_64, glibc ≥ 2.36 (Debian 12, Ubuntu 22.04, Fedora 39+, актуальный Arch) | основная |
-| Windows 10/11 x86_64 | основная, portable |
+| Windows 10/11 x86_64 | основная, установщик или portable |
 | Linux aarch64, Windows ARM64 | **экспериментальная** |
 
 Экспериментальные сборки **нигде не запускались**: пакет может не установиться, окно или звук могут не завестись. Для повседневного использования — x86_64.

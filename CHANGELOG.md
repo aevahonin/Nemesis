@@ -87,7 +87,9 @@ Released: 2026-10-23
 - Linux (Flatpak): in the Flatpak build, external control of the player did not work — keyboard media keys and track information in the desktop shell: the player's D-Bus name was not covered by the sandbox permissions, and the service thread crashed. It works now.
 
 
----# 0.1.5 (release)
+---
+
+# 0.1.5 (release)
 
 > Русская версия: [CHANGELOG_ru.md](CHANGELOG_ru.md)
 
